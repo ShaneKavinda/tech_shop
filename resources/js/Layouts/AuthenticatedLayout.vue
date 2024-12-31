@@ -13,7 +13,6 @@ const showingNavigationDropdown = ref(false);
 <template>
     <div>
         <div class="min-h-screen bg-gray-100"
-        :style="{backgroundImage:`url('images/futuristic-robotic-hummingbird.jpg')`}"
         >
             <nav
                 class="border-b border-gray-100 bg-white"

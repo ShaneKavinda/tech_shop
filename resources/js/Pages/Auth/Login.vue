@@ -89,8 +89,7 @@ const submit = () => {
 
                 <PrimaryButton
                     class="ms-4"
-                    :class="{ 'opacity-10': form.processing }"
-                    :disabled="form.processing"
+                    :href="route('register')"
                 >
                     Register
                 </PrimaryButton>
