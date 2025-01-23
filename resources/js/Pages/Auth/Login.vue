@@ -27,6 +27,10 @@ const submit = () => {
         onFinish: () => form.reset('password'),
     });
 };
+
+const redirectToRegister = () => {
+    this.router.push({name: 'register'});
+}
 </script>
 
 <template>
@@ -87,12 +91,15 @@ const submit = () => {
                     Forgot your password?
                 </Link>
 
-                <PrimaryButton
-                    class="ms-4"
+                <Link
                     :href="route('register')"
                 >
-                    Register
-                </PrimaryButton>
+                    <PrimaryButton
+                        class="ms-4"
+                    >
+                        Register
+                    </PrimaryButton>
+                </Link>
 
                 <PrimaryButton
                     class="ms-4"

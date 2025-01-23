@@ -1,9 +1,11 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head, router as $inertia } from '@inertiajs/vue3';
+import NavLink from '@/Components/NavLink.vue';
+import { Head } from '@inertiajs/vue3';
 import { onMounted } from 'vue';
+import axios from 'axios';
 import ProductForm from '@/Components/ProductForm.vue';
-
+import Product from './Product.vue';
 
 defineProps({
     mustVerifyEmail: {
@@ -20,24 +22,21 @@ onMounted(()=>{
 })
 
 const addProduct = async (productData) => {
-    try {
-        const response = await axios.post('/products/store', productData);
-        console.log('Product added successfully:', response.data);
-        alert('Product added successfully!');
-        
-        // Redirect using Inertia
-        $inertia.visit('/product'); // Redirect after success
-
-    } catch (error) {
-        console.error('Error adding product:', error);
-        alert('Failed to add product. Please try again.');
-    }
-
+    // try {
+    //     const response = await axios.post('/products/store', productData);
+    //     console.log('Product added successfully:', response.data);
+    //     alert('Product added successfully!');
+    //     this.router.redirect('products')
+    // } catch (error) {
+    //     console.error('Error adding product:', error);
+    //     alert('Failed to add product. Please try again.');
+    // }
+    this.router.redirect('products');
 };
 </script>
 
 <template>
-    <Head title="Add Product" />
+    <Head title="Profile" />
 
     <AuthenticatedLayout>
         <template #header>

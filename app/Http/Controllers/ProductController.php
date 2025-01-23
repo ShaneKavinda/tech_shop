@@ -29,7 +29,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255', // name must not be empty
+            'description' => 'string',
+            'status' => 'required|boolean'
+        ]);
+        
+        $product = Product::create($validated); // Create a product if the request attributes are validated
+
+        return response()->json([
+            'message' => 'product has been successfully inserted',
+            'product' => $product->name
+        ], 201);
     }
 
     /**
@@ -45,7 +56,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return Inertia::render('Product/Edit', [
+            'product' => $product, // passing all of product data as a prop
+        ]);
     }
 
     /**
